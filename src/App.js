@@ -17,14 +17,17 @@ function Calculator(){
   if(e.target.innerText==="AC"){
       setValue("0");
     }
-  else if(e.target.innerText==="="){
-      let val=eval(values);
-      setValue(val);
-    }
     else if(e.target.innerText==='←'){
-      let val=values.slice(0,-1);
-      setValue(val);
+      let val=values;
+      val=String(val);
+      let newVal=val.slice(0,-1);
+      setValue(newVal);
      }
+  else if(e.target.innerText==="="){
+      let val=values;
+      let newVal=eval(val);
+      setValue(newVal);
+    }
   else if(values!=='0'){
     setValue(prevVal=>prevVal+e.target.innerText);
    }
